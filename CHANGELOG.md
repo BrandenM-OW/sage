@@ -1,15 +1,13 @@
 # Changelog
 
-## v1.0.0
+## v0.0.1
 
 ### Added or Changed
-- Added this changelog :)
-- Fixed typos in both templates
-- Back to top links
-- Added more "Built With" frameworks/libraries
-- Changed table of contents to start collapsed
-- Added checkboxes for major features on roadmap
-
-### Removed
-
-- Some packages/libraries from acknowledgements I no longer use
+- Added this repo :)
+- Added Backbuffer fipping in mode 5.
+- Reduced mode 5 resolution to 120x80 for a clean 2x scale.
+- 15/30 FPS control with vsync.
+- FPS debugging print out.
+- Added basic controller mappings.
+- Added sound registers and basic play note function.
+- Devkitpro MakeFile included.

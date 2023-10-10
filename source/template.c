@@ -14,22 +14,6 @@ void init()
     P.y = 35; // init player
 }
 
-IN_IWRAM void drawImage(int w, int h, int xo, int yo, const u16 *map, int to)
-{
-    int x, y, c; // image w/h, position offset,  texture name, texture offset
-    for (x = 0; x < w; x++)
-    {
-        for (y = 0; y < h; y++)
-        {
-            c = map[(y + to * h) * w + x];
-            if (c > 0)
-            {
-                VRAM[(y + yo) * GBA_SW + x + xo] = c;
-            }
-        }
-    }
-}
-
 int main()
 {
     // Set graphics mode 5, enable BG2, stretch screen to full
@@ -43,18 +27,16 @@ int main()
     while (1)
     {
         int FPS_SET = FPS_30; // FPS_15 || FPS_30
-        u16 test = splashMap[0];
         if (FPS_SET != lastFr)
         {
             //-- Game Logic Here --
-            // drawImage(120, 80, 0, 0, splashMap, 0);
             clearBackground();
             buttons(&P);
             VRAM[P.y * GBA_SW + P.x] = RGB(31, 0, 0);
             //-- end game logic --
 
             //--- Debugging ---
-            // printFps(FPS_SET, &lastFr, &FPS);
+            printFps(FPS_SET, &lastFr, &FPS);
 
             //-- FPS Counter --
             FPS += 1;
